@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Devices</title>
+    <div th:replace="~{fragments.html :: head}"></div>
+</head>
+<body>
+    <div class="card">
+        <div class="card-body">
+            <table class="table">
+
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Manufacturer</th>
+                        <th scope="col">Model</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each="device, stat: ${devices}">
+                        <th th:text="${stat.count}" scope="row"></th>
+                        <td th:text="${device.manufacturer}"></td>
+                        <td><a th:href="@{'/device/' + ${device.id} }" th:text="${device.model}">home</a></td>
+                        <td th:text="${device.price}"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a th:href="@{/}">home</a>
+        </div>
+    </div>
+</body>
+</html>
