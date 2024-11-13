@@ -7,3 +7,14 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+  security:
+    oauth2:
+      client:
+        registration:
+          sf:
+            client-id: ${SF_CLIENT_ID}
+            client-secret: ${SF_CLIENT_SECRET}
+            authorization-grant-type: client_credentials
+        provider:
+          sf:
+            token-uri: "${SF_BASE_URL}${SF_TOKEN_URI}"
