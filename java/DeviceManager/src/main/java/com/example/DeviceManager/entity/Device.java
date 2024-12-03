@@ -1,9 +1,6 @@
 package com.example.DeviceManager.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Device {
@@ -15,6 +12,9 @@ public class Device {
     private String manufacturer;
     private String model;
     private Double price;
+
+    @Column(length = 18, unique = true)
+    private String sfId;
 
     public Device() {}
 
@@ -54,5 +54,13 @@ public class Device {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public String getSfId() {
+        return sfId;
+    }
+
+    public void setSfId(String sfId) {
+        this.sfId = sfId;
     }
 }

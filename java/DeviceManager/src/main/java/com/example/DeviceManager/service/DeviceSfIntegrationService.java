@@ -38,6 +38,7 @@ public class DeviceSfIntegrationService {
         bodyDataMap.put("Name", device.getModel());
         bodyDataMap.put("Manufacturer__c", device.getManufacturer());
         bodyDataMap.put("Price__c", device.getPrice());
+        bodyDataMap.put("LastlyModifiedByDMJavaApp__c", true);
 
         String requestBody;
         try {
